@@ -1,0 +1,73 @@
+<mat-dialog-content id='container' style="color: black">
+    <h2 mat-dialog-title class="generate">Generate an invoice</h2>
+    <div>
+        <form [formGroup]="billForm">
+
+            <div class="input">
+                <label for="customerName">Customer Name</label><br>
+                <input type="text" id="customerName" formControlName="customerName" autocomplete="off">
+            </div>
+            <div class="input">
+                <label for="phoneNumber">Phone Number</label><br>
+                <input type="number" id="phoneNumber" min="1" formControlName="phoneNumber">
+            </div>
+            <div class="input">
+                <label for="email">Email</label><br>
+                <input type="text" id="email" formControlName="email">
+            </div>
+            <div class="input" formGroupName="items">
+                <p>Items</p>
+                <div class="prodDetails">
+                    <div style="margin-right: 10px">
+                        <label style="margin-right: 25px">Product Name</label><br>
+                        <input *ngIf="data.createFlag" style="width: 120px; margin-right: 10px;" type="text"
+                            id="productName" formControlName="productName" (input)="setFlag()">
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div style="margin-right: 10px">
+                        <label style="margin-right: 15px;">Quantity</label><br>
+                        <input *ngIf="data.createFlag" style="width: 50px;" min="1" type="number" id="quantity"
+                            formControlName="quantity">
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div>
+                        <label>Price</label><br>
+                        <input *ngIf="data.createFlag" style="width: 50px;" type="number" id="price" min="1"
+                            formControlName="price">
+                    </div><mat-divider></mat-divider>
+                    <button class="addIcon" *ngIf="data.createFlag" mat-icon-button (click)="addItem()">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </div>
+                <div>
+
+                    <div class="prodDetails" *ngFor="let item of itemList" type="1">
+                        <!-- <p>{{item.productName}} {{item.quantity}} {{item.price}}</p> -->
+                        <div>
+                            <div style="width: 100px; margin-right: 50px; text-align: center;">{{item.productName}}
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <div>
+                            <div style="width: 50px; margin-right: 25px; text-align: center;">{{item.quantity}}</div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <div>
+                            <div style="width: 50px; text-align: center;">{{item.price}}</div>
+                        </div>
+                        <mat-divider></mat-divider>
+                    </div>
+
+                </div>
+            </div>
+            <div class="input">
+                <label for="billAmount">Bill Amount</label><br>
+                <input type="number" id="billAmount" formControlName="billAmount">
+            </div>
+        </form>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end" class="botBtn">
+    <button mat-button class="save" (click)="popSave()" *ngIf="data.createFlag">Save</button>
+    <button mat-button [mat-dialog-close]="true" class="cancel" (click)="closeDialog()">close</button>
+</mat-dialog-actions>

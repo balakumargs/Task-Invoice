@@ -1,0 +1,37 @@
+.generate {    
+    text-align: center;
+}
+
+.input {
+    padding-left: 10px ;
+    margin-bottom: 5px;
+    width: 100%;
+    margin-right: 5px;
+}
+.prodDetails {
+    display: flex;
+}
+.addIcon {
+    position: relative;
+    top: 13px;
+    left: 3px;
+    cursor: pointer;
+}
+.save, .cancel {
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    width: 70px;
+    cursor: pointer;
+}
+
+.save {
+    background-color: rgb(50, 164, 50);
+    border: 1px solid green;
+}
+
+.cancel {
+    margin-left: 15px;
+    background-color: rgb(220, 58, 58);
+    border: 1px solid rgb(220, 58, 58);
+}

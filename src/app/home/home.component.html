@@ -1,0 +1,44 @@
+<!-- <h1>{{billList | json}}</h1> -->
+<div style=" width: 100%; text-align: center;">
+    <button mat-button class="popup" (click)=" openPopup()">Add Items</button>
+</div>
+<table mat-table [dataSource]="datasource">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id </th>
+        <td mat-cell *matCellDef="let bill"> {{bill.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="customerName">
+        <th mat-header-cell *matHeaderCellDef>Customer Name </th>
+        <td mat-cell *matCellDef="let bill"> {{bill.customerName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="phoneNumber">
+        <th mat-header-cell *matHeaderCellDef>Phone Number </th>
+        <td mat-cell *matCellDef="let bill"> {{bill.phoneNumber}} </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email </th>
+        <td mat-cell *matCellDef="let bill"> {{bill.email}} </td>
+    </ng-container>
+    <ng-container matColumnDef="items">
+        <th mat-header-cell *matHeaderCellDef>Items </th>
+        <td mat-cell class="itemsView" *matCellDef="let bill" (click)="viewItems(bill)">
+            <div *ngFor="let bill of bill.items">{{bill.productName}}</div>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="billAmount">
+        <th mat-header-cell *matHeaderCellDef>Bill Amount </th>
+        <td mat-cell *matCellDef="let bill"> {{bill.billAmount}}</td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Delete</th>
+        <td mat-cell *matCellDef="let bill;">
+            <button mat-icon-button (click)="delete(bill.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

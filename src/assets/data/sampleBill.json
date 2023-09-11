@@ -1,0 +1,23 @@
+[
+    {  "id": 1,
+  "customerName": "Rahul",
+  "phoneNumber": 101,
+  "email": "rahul@test.com",
+  "items": [{"productName": "TV", "quantity": 1, "price": 12000}, {"productName": "AC", "quantity": 1, "price": 39000} ],
+  "billAmount": 1001
+    },
+       {  "id": 2,
+  "customerName": "Shyam",
+  "phoneNumber": 102,
+  "email": "shyam@test.com",
+  "items": [{"productName": "AC", "quantity": 1, "price": 35000}, {"productName": "Pendrive", "quantity": 3, "price": 1200}, {"productName": "MixerGrinder", "quantity": 1, "price": 6500} ],
+  "billAmount": 1002
+    },
+       {  "id": 3,
+  "customerName": "Karthik",
+  "phoneNumber": 103,
+  "email": "karthik@test.com",
+  "items": [{"productName": "Pendrive", "quantity": 2, "price": 800}, {"productName": "TV", "quantity": 1, "price": 23000}, {"productName": "MixerGrinder", "quantity": 1, "price": 6500}, {"productName": "Fridge", "quantity": 1, "price": 13000}  ],
+  "billAmount": 1002
+    }
+]
